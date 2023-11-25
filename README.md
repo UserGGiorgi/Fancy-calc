@@ -1,92 +1,299 @@
-# fancy-calc
+# Fancy Calculator
+
+A beginner-level task to practice running and debugging unit tests in Visual Studio.
+
+Estimated time to complete the task: 30 minutes.
+
+The task requires .NET 6 SDK installed.
 
 
+## SonarLint
 
-## Getting started
+We recommend you to install [SonarLint extension for Visual Studio](https://www.sonarlint.org/visualstudio). This extension is very useful during the development because it detects code quality and code security issues on the fly and highlights these issues in the Visual Studio code editor.
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+When the "SonarLint" extension will be installed, start the application again. Now Visual Studio will highlignt the issues detected by Sonar in the code editor window by wavy underline.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+![SonarLint Warnings in Visual Studio](images/vs-warnings.png)
 
-## Add your files
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Complete the Task
 
+1. [Build the solution](https://docs.microsoft.com/en-us/visualstudio/ide/building-and-cleaning-projects-and-solutions-in-visual-studio).
+    * Click on the menu item - _Build\Build Solution_.
+    * Or use the default keyboard shortcut - _Ctrl+Shift+B_.
+
+![Build Solution](images/build-solution.png)
+
+2. Open the [Test Explorer](https://docs.microsoft.com/ru-ru/visualstudio/test/run-unit-tests-with-test-explorer) view.
+    * Click on the menu item - _View\Test Explorer_.
+    * Or use the default keyboard shortcut - _Ctrl+E, T_.
+
+![Test Explorer](images/test-explorer.png)
+
+3. Run all unit tests. There are 20 unit tests in the project, at least 15 unit tests in Test Explorer should be "red".
+    * Click on the menu item - _Test\Run All Tests_.
+    * Or use the defaul keyboard shortcut - _Ctrl+R, A_.
+
+![Run All Tests](images/run-all-tests.png)
+
+4. Double click on "Plus_WithOneAndOne_ReturnsTwo" unit test. Visual Studio will open the code editor window for [OperationsTests.cs](FancyCalc.Tests/OperationsTests.cs) file, and will navigate you to the unit test code.
+
+![Navigate to Unit Test](images/navigate-to-unit-test.png)
+
+5. Navigate to "Operations.Plus" method code.
+    * Right click on the method name "Plus" in line 13, and click on "Go to Definition" menu item.
+    * Or click on the method name "Plus" in line 13, and use the default shortcut _F12_.
+    * Or click on the method name "Plus" in line 13 pressing the _Ctrl_ key.
+
+![Navigate to Method](images/navigate-to-method.png)
+
+6. Visual Studio will open the editor window for [Operations.cs](FancyCalc/Operations.cs) file, and will navigate you to the method code.
+
+7. Go to line 10.
+    * Use cursor keys.
+    * Or use the default shortcut - _Ctrl+G_, press 10, and press Enter key.
+
+![Navigate to Method](images/goto-line-10.png)
+
+8. Uncomment the current line.
+    * Use the default shortcut - _Ctrl+K, Ctrl+U_.
+
+```cs
+public static int Plus(int x, int y)
+{
+    // TODO #1. Uncomment the line below and remove the line that throws NotImplementedException.
+    return x + y;
+    throw new NotImplementedException();
+}
 ```
-cd existing_repo
-git remote add origin https://autocode.git.epam.com/dotnet-tasks/autocode-tutorials/net8/fancy-calc.git
-git branch -M main
-git push -uf origin main
+
+9. Go to the next line - line 11.
+10. Comment the current line.
+    * Use the default shortcut - _Ctrl+K, Ctrl+C_.
+
+```cs
+public static int Plus(int x, int y)
+{
+    // TODO #1. Uncomment the line below and remove the line that throws NotImplementedException.
+    return x + y;
+    //throw new NotImplementedException();
+}
 ```
 
-## Integrate with your tools
+11. Open the Test Explorer view, run all unit tests. All "Plus" unit tests and "Plus_WithOneAndOne_ReturnsTwo" unit test are "green" now.
 
-- [ ] [Set up project integrations](https://autocode.git.epam.com/dotnet-tasks/autocode-tutorials/net8/fancy-calc/-/settings/integrations)
+![Run All Tests in View](images/run-all-tests-in-view.png)
 
-## Collaborate with your team
+12. Inspect "Minus" unit tests in the test list. Only one unit test should be "green", the others — "red".
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+![Minus Unit Tests](images/minus-unit-tests.png)
 
-## Test and Deploy
+13. Navigate to the unit test code and then navigate to the "Minus" method code in the [Operations.cs](FancyCalc/Operations.cs) file.
 
-Use the built-in continuous integration in GitLab.
+![Navigate to Minus Method](images/navigate-to-minus-method.png)
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+14. Fix the "Minus" method code according to the TODO comment.
 
-***
+```cs
+public static int Minus(int x, int y)
+{
+    // TODO #2. Replace "x + y - x" in the next line with "x - y".
+    return x - y;
+}
+```
 
-# Editing this README
+15. Open the Test Explorer view, click on the "Minus (4)" line, and run all "Minus" unit tests right clicking on the menu item. All "Minus" unit tests should be green now.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+![Run Minus Unit Tests](images/run-minus-unit-tests.png)
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+16. Navigate to the "Multiply" unit test, and then to the "Multiply" method code in the [Operations.cs](FancyCalc/Operations.cs) file.
 
-## Name
-Choose a self-explaining name for your project.
+![Navigate to Multiply Method](images/navigate-to-multiply-method.png)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+17. Add a breakpoint to line 23.
+    * Click on the gutter for line 23.
+    * Or use the default shortcut - _F9_.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+![Add Breakpoint to Multiply Method](images/add-breakpoint-to-multiply-method.png)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+18. Open the Test Explorer view, and run the "green" "Multiply(0, 0)" unit test in the debug mode.
+    * Right click on the "Multiply" unit test, and click on the "Debug" menu item.
+    * Or use the default shortcut - _Ctrl+R, T_.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+![Debug Multiply Unit Test](images/debug-multiply-unit-test.png)
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+19. Trace the program execution.
+    * Click on the "Debug\Step Over" menu item.
+    * Or use the default shortcut - _F10_.
+    * Or use the menu bar icon in the "Debug" panel.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+![Debug Step Over](images/debug-step-over.png)
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+20. Inspect the "result" variable.
+    * Hover the "result" variable name on line 24 with your mouse.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+![Inspect Result Variable](images/inspect-multiply-result.png)
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+21. Stop Debugging.
+    * Click on the "Debug\Stop Debugging" menu item.
+    * Or use the default shortcut - _Shift+F5_.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+![Stop Debugging](images/stop-debugging.png)
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+22. Remove the breakpoint on line 23, and add a breakpoint to line 24.
 
-## License
-For open source projects, say how it is licensed.
+![Add Breakpoint to Multiply Method](images/add-breakpoint-to-multiply-method2.png)
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+23. Run the "red" "Multiply(0, 1)" unit test in the debug mode again.
+
+![Debug Multiply Unit Test](images/debug-multiply-unit-test2.png)
+
+24. Inspect the "result" variable.
+
+![Inspect Result Variable](images/inspect-multiply-result2.png)
+
+25. Continue the program execution.
+    * Click on the "Debug\Continue" menu item.
+    * Or use the default shortcut - _F5_.
+    * Or use the menu bar icon in the "Debug" panel.
+
+![Continue Debugging](images/continue-debugging.png)
+
+26. Fix the "Multiply" method code.
+
+```cs
+public static int Multiply(int x, int y)
+{
+    // TODO #3. Add a breakpoint to the next line, run the unit test in the debug mode, and inspect the result during the program execution.
+    int result = x * y;
+    return result;
+}
+```
+
+27. Open the Test Explorer view and run all "Multiply" unit tests again. "Multiply" unit tests should be "green" now.
+
+![Run Multiply Unit Tests](images/run-multiply-unit-tests.png)
+
+28. Open the Test Explorer view and run all "Sum" unit tests. Some unit tests should be "red".
+
+![Red Sum Unit Tests](images/red-sum-unit-tests.png)
+
+29. Add a breakpoint to line 30.
+
+![Add Breakpoint to Sum Method](images/add-breakpoint-to-sum-method.png)
+
+30. Run one of the failed unit tests in the debug mode.
+
+![Debug Sum Unit Test](images/debug-sum-unit-test.png)
+
+31. Trace the program execution to find the problem.
+32. Fix the code.
+
+```cs
+public static int Sum(int x1, int x2, int x3)
+{
+    // TODO #4. Add a breakpoint to the next line, run the unit test in the debug mode, and trace the program execution.
+    int sum1 = x1 + x2;
+    int sum = sum1 + x3;
+    return sum;
+}
+```
+
+33. Open the Test Explorer view and run all "Sum" unit tests. "Sum" unit tests should be "green" now.
+
+![Green Sum Unit Tests](images/green-sum-unit-tests.png)
+
+34. Run all unit tests and make sure all of them are "green".
+
+![Green Unit Tests](images/green-unit-tests.png)
+
+35. Rebuild the solution.
+    * Click on the menu item - _Build\Rebuild Solution_.
+
+![Rebuild Solution](images/rebuild-solution.png)
+
+36. Open the "Error List" pane. The pane has few warnings; 3 warnings are for line 11.
+    * Click on the "View\Error List" menu item.
+    * Or use the default shortcut - _Ctrl+W, E_.
+
+![Error List with Warnings](images/error-list-with-warnings.png)
+
+37. Remove line 11.
+
+```cs
+public static int Plus(int x, int y)
+{
+    // TODO #1. Uncomment the line below and remove the line that throws NotImplementedException.
+    return x + y;
+}
+```
+
+If you leave this comment in your code, the Sonar will raise issues when you will initiate the task check in AutoCode.
+
+![AutoCode Sonar Commented Code Issue](images/autocode-sonar-commented-code.png)
+
+38. Rebuild the solution and open the "Eror List" pane again. The pane has no warnings now.
+
+![Error List](images/error-list.png)
+
+39. If you have SonarLint extension installed in your Visual Studio, the Visual Studio will mark a "TODO" word in the code editor window with a wavy underline. This is the warning generated by [S1135 rule](https://rules.sonarsource.com/csharp/RSPEC-1135).
+
+![Error List](images/sonar-todo-warning.png)
+
+The rule description says:
+
+_TODO tags are commonly used to mark places where some more code is required, but which the developer wants to implement later. Sometimes the developer will not have the time or will simply forget to get back to that tag. This rule is meant to track those tags and to ensure that they do not go unnoticed._
+
+40. Remove all comment lines with "TODO" word to fix the issues.
+
+```cs
+public static int Plus(int x, int y)
+{
+    return x + y;
+}
+```
+
+If you leave "TODO" in your code, the Sonar will raise an issue when you will initiate the task check in AutoCode.
+
+![AutoCode Sonar TODO Issue](images/autocode-sonar-todo.png)
+
+
+## Fix Compiler Issues
+
+Additional style and code checks are enabled for the projects in this solution to help you maintain consistency of the project source code and avoid silly mistakes. [Review the Error List](https://docs.microsoft.com/en-us/visualstudio/ide/find-and-fix-code-errors#review-the-error-list) in Visual Studio to see all compiler warnings and errors.
+
+If a compiler error or warning message is not clear, [review errors details](https://docs.microsoft.com/en-us/visualstudio/ide/find-and-fix-code-errors#review-errors-in-detail) or google the error or warning code to get more information about the issue.
+
+Also, you can use [Sonar rule knowledge database](https://rules.sonarsource.com/csharp) for searching more detailed information regarding detected Sonars' issues.
+
+
+## Save Your Work
+
+* [Rebuild your solution](https://docs.microsoft.com/en-us/visualstudio/ide/building-and-cleaning-projects-and-solutions-in-visual-studio) in Visual Studio.
+* Check out the [Error List window](https://docs.microsoft.com/en-us/visualstudio/ide/reference/error-list-window) for compiler errors and warnings. If you have any of those issues, **fix the issues** and rebuild the solution again.
+* [Run all unit tests with Test Explorer](https://docs.microsoft.com/en-us/visualstudio/test/run-unit-tests-with-test-explorer) and make sure there are **no failed unit tests**. Fix your code to [make all your unit tests GREEN](https://stackoverflow.com/questions/276813/what-is-red-green-testing).
+* Review all your changes **before** saving your work.
+    * Open the "Changes" view in [Team Explorer](https://docs.microsoft.com/en-us/visualstudio/ide/reference/team-explorer-reference).
+    * Right click on a modified file.
+    * Click on "Compare with Unmodified" menu item to open a comparison window.
+* [Stage your changes](https://docs.microsoft.com/en-us/azure/devops/repos/git/commits#how-to-stage-your-changes) and [create a commit](https://docs.microsoft.com/en-us/azure/devops/repos/git/commits#how-to-create-a-commit).
+* Share your changes by [pushing them to a remote repository](https://docs.microsoft.com/en-us/azure/devops/repos/git/pushing).
+
+
+## Sonar Issues
+
+If you left a comment line with "TODO" word in your code or any commented code lines, you will get Sonar issues during the task check.
+
+![AutoCode Sonar Issues](images/autocode-sonar-issues.png)
+
+To get a higher score, fix these issues and start check the task again.
+
+
+## See also
+
+* Visual Studio
+  * [First look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
+  * [Quickstart: Debug with C# or Visual Basic using the Visual Studio debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/quickstart-debug-with-managed)
+  * [Tutorial: Learn to debug C# code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/get-started/csharp/tutorial-debugger)
+  * [Navigate through code with the Visual Studio debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/navigating-through-code-with-the-debugger)
+  * [Default keyboard shortcuts in Visual Studio](https://docs.microsoft.com/en-us/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio)
